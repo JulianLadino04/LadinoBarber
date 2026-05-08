@@ -10,24 +10,45 @@ import java.time.LocalTime;
  * DTO para detalle completo de una cita.
  */
 public record InformacionCitaDTO(
-    String id,
-    String clienteId,
-    String nombreCliente,
-    String telefonoCliente,
-    String barberoId,
-    String nombreBarbero,
-    String servicioId,
-    String nombreServicio,
-    LocalDate fecha,
-    LocalTime horaInicio,
-    LocalTime horaFin,
-    BigDecimal precioBase,
-    BigDecimal precioFinal,
-    boolean bonoAplicado,
-    EstadoCita estado,
-    String observaciones,
-    String citaOriginalId,
-    boolean confirmacionEnviada,
-    boolean recordatorioEnviado,
-    LocalDateTime fechaCreacion
+
+        String id,
+
+        String clienteId,
+
+        String nombreCliente,
+
+        String telefonoCliente,
+
+        String barberoId,
+
+        String nombreBarbero,
+
+        String servicioId,
+
+        String nombreServicio,
+
+        LocalDate fecha,
+
+        LocalTime horaInicio,
+
+        LocalTime horaFin,
+
+        BigDecimal precioBase,
+
+        BigDecimal precioFinal,
+
+        boolean bonoAplicado,
+
+        EstadoCita estado,
+
+        String observaciones,
+
+        String citaOriginalId,
+
+        boolean confirmacionEnviada,
+
+        boolean recordatorioEnviado,
+
+        LocalDateTime fechaCreacion
+
 ) {}

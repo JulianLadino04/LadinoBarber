@@ -7,11 +7,19 @@ import java.util.List;
  * DTO para item del feed público del cliente.
  */
 public record ItemGaleriaCorteDTO(
-    String id,
-    String imagenUrl,
-    String descripcion,
-    String nombreBarbero,
-    List<String> etiquetas,
-    int totalFavoritos,
-    LocalDateTime fechaPublicacion
+
+        String id,
+
+        String imagenUrl,
+
+        String descripcion,
+
+        String nombreBarbero,
+
+        List<String> etiquetas,
+
+        int totalFavoritos,
+
+        LocalDateTime fechaPublicacion
+
 ) {}

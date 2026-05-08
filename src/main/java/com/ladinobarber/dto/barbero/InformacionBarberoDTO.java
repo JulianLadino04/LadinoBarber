@@ -8,13 +8,23 @@ import java.util.List;
  * DTO para detalle completo del barbero.
  */
 public record InformacionBarberoDTO(
-    String id,
-    String nombre,
-    String telefono,
-    String correo,
-    String descripcion,
-    String fotoUrl,
-    boolean activo,
-    List<HorarioDisponibleDTO> horarios,
-    LocalDateTime fechaRegistro
+
+        String id,
+
+        String nombre,
+
+        String telefono,
+
+        String correo,
+
+        String descripcion,
+
+        String fotoUrl,
+
+        boolean activo,
+
+        List<HorarioDisponibleDTO> horarios,
+
+        LocalDateTime fechaRegistro
+
 ) {}

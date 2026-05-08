@@ -19,7 +19,7 @@ public interface GaleriaCorteRepository extends MongoRepository<GaleriaCorte, St
      * @param barberoId el ID del barbero
      * @return lista de fotos visibles del barbero
      */
-    List<GaleriaCorte> findByVisibleTrueAndBarberoId(String barberoId);
+    List<GaleriaCorte> findByBarberoIdAndVisibleTrue(String barberoId);
 
     /**
      * Busca fotos cuyos IDs estén en una lista de favoritos IDs.
@@ -27,4 +27,11 @@ public interface GaleriaCorteRepository extends MongoRepository<GaleriaCorte, St
      * @return lista de fotos favoritas
      */
     List<GaleriaCorte> findByIdIn(List<String> favoritosIds);
+
+    /**
+     * Verifica si existe un corte con el ID dado.
+     * @param id el ID del corte
+     * @return true si existe, false en caso contrario
+     */
+    boolean existsById(String id);
 }

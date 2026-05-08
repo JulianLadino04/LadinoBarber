@@ -9,8 +9,17 @@ import java.time.LocalTime;
  * DTO para agregar o actualizar un horario de barbero.
  */
 public record AgregarHorarioDTO(
-    @NotBlank String barberoId,
-    @NotNull DiaSemana dia,
-    @NotNull LocalTime horaInicio,
-    @NotNull LocalTime horaFin
+
+        @NotBlank(message = "El ID del barbero es obligatorio")
+        String barberoId,
+
+        @NotNull(message = "El día es obligatorio")
+        DiaSemana dia,
+
+        @NotNull(message = "La hora de inicio es obligatoria")
+        LocalTime horaInicio,
+
+        @NotNull(message = "La hora de fin es obligatoria")
+        LocalTime horaFin
+
 ) {}

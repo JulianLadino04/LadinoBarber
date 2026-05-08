@@ -19,4 +19,11 @@ public interface ProductoRepository extends MongoRepository<Producto, String> {
      * @return lista de productos activos disponibles
      */
     List<Producto> findByActivoTrueAndStockGreaterThan(int stock);
+
+    /**
+     * Verifica si existe un producto con el nombre dado.
+     * @param nombre el nombre del producto
+     * @return true si existe, false en caso contrario
+     */
+    boolean existsByNombre(String nombre);
 }

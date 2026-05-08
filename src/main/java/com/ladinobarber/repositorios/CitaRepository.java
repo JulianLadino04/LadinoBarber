@@ -61,6 +61,14 @@ public interface CitaRepository extends MongoRepository<Cita, String> {
     List<Cita> findByClienteIdAndEstado(String clienteId, EstadoCita estado);
 
     /**
+     * Busca citas entre dos fechas de la cita.
+     * @param fechaInicio la fecha de inicio (inclusive)
+     * @param fechaFin la fecha de fin (inclusive)
+     * @return lista de citas en el rango
+     */
+    List<Cita> findByFechaBetween(LocalDate fechaInicio, LocalDate fechaFin);
+
+    /**
      * Busca citas entre dos fechas de creación para estadísticas mensuales.
      * @param start fecha de inicio
      * @param end fecha de fin

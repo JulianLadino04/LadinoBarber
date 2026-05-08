@@ -7,6 +7,11 @@ import jakarta.validation.constraints.NotBlank;
  * DTO para actualizar únicamente el stock de un producto.
  */
 public record ActualizarStockDTO(
-    @NotBlank String id,
-    @Min(0) int nuevoStock
+
+        @NotBlank(message = "El ID es obligatorio")
+        String id,
+
+        @Min(value = 0, message = "El stock no puede ser negativo")
+        int nuevoStock
+
 ) {}

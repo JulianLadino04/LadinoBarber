@@ -21,4 +21,11 @@ public interface ServicioRepository extends MongoRepository<Servicio, String> {
      * @return lista de servicios activos del tipo dado
      */
     List<Servicio> findByActivoTrueAndTipo(TipoServicio tipo);
+
+    /**
+     * Verifica si existe un servicio con el nombre dado.
+     * @param nombre el nombre del servicio
+     * @return true si existe, false en caso contrario
+     */
+    boolean existsByNombre(String nombre);
 }

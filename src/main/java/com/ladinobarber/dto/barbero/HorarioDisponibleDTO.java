@@ -1,14 +1,19 @@
 package com.ladinobarber.dto.barbero;
 
-import java.time.DayOfWeek;
+import com.ladinobarber.modelo.enums.DiaSemana;
 import java.time.LocalTime;
 
 /**
  * DTO que representa un horario disponible del barbero.
  */
 public record HorarioDisponibleDTO(
-        DayOfWeek diaSemana,
+
+        DiaSemana dia,
+
         LocalTime horaInicio,
+
         LocalTime horaFin,
-        boolean disponible
+
+        boolean habilitado
+
 ) {}

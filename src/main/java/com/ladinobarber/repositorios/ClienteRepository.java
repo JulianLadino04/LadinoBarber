@@ -4,41 +4,33 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 import com.ladinobarber.modelo.documentos.Cliente;
 
+import java.util.Optional;
+
 @Repository
 public interface ClienteRepository extends MongoRepository<Cliente, String> {
 
     /**
-     * Busca un cliente por su correo electrónico.
-     * @param correo el correo del cliente
-     * @return el cliente encontrado o null si no existe
+     * Busca un cliente por su correo electrónico
      */
-    Cliente findByCorreo(String correo);
+    Optional<Cliente> findByCorreo(String correo);
 
     /**
-     * Busca un cliente por su teléfono.
-     * @param telefono el teléfono del cliente
-     * @return el cliente encontrado o null si no existe
+     * Busca un cliente por su teléfono
      */
-    Cliente findByTelefono(String telefono);
+    Optional<Cliente> findByTelefono(String telefono);
 
     /**
-     * Verifica si existe un cliente con el correo dado.
-     * @param correo el correo a verificar
-     * @return true si existe, false en caso contrario
+     * Verifica si existe un cliente con el correo dado
      */
     boolean existsByCorreo(String correo);
 
     /**
-     * Verifica si existe un cliente con el teléfono dado.
-     * @param telefono el teléfono a verificar
-     * @return true si existe, false en caso contrario
+     * Verifica si existe un cliente con el teléfono dado
      */
     boolean existsByTelefono(String telefono);
 
     /**
-     * Busca un cliente por su código de recuperación.
-     * @param codigoRecuperacion el código de recuperación
-     * @return el cliente encontrado o null si no existe
+     * Busca un cliente por su código de recuperación
      */
-    Cliente findByCodigoRecuperacion(String codigoRecuperacion);
+    Optional<Cliente> findByCodigoRecuperacion(String codigoRecuperacion);
 }

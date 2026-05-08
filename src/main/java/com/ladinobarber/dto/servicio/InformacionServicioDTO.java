@@ -8,13 +8,23 @@ import java.time.LocalDateTime;
  * DTO para detalle completo de un servicio.
  */
 public record InformacionServicioDTO(
-    String id,
-    String nombre,
-    String descripcion,
-    TipoServicio tipo,
-    BigDecimal precio,
-    int duracionMinutos,
-    String imagenUrl,
-    boolean activo,
-    LocalDateTime fechaCreacion
+
+        String id,
+
+        String nombre,
+
+        String descripcion,
+
+        TipoServicio tipo,
+
+        BigDecimal precio,
+
+        int duracionMinutos,
+
+        String imagenUrl,
+
+        boolean activo,
+
+        LocalDateTime fechaCreacion
+
 ) {}
