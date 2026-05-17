@@ -21,4 +21,6 @@ public interface CitaService {
 
     void eliminar(String id) throws Exception;
 
+    InformacionCitaDTO cancelar(String id) throws Exception;
+
 }

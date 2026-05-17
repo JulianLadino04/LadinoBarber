@@ -54,7 +54,7 @@ public class ClienteServiceImpl implements ClienteService {
     public String crear(CrearClienteDTO dto) throws Exception {
 
         if (clienteRepository.existsByCorreo(dto.correo())) {
-            throw new Exception("El correo ya está registrado");
+            throw new IllegalArgumentException("El correo ya está registrado");
         }
 
         if (clienteRepository.existsByTelefono(dto.telefono())) {
@@ -69,7 +69,7 @@ public class ClienteServiceImpl implements ClienteService {
         cliente.setCorreo(dto.correo());
 
         // 🔐 ENCRIPTAR CONTRASEÑA
-        cliente.setContrasena(passwordEncoder.encode(dto.contrasena()));
+        cliente.setContrasena(passwordEncoder.encode(dto.password()));
 
         cliente.setRol(Rol.CLIENTE);
         cliente.setFavoritosIds(new ArrayList<>());

@@ -188,4 +188,38 @@ public class CitaServiceImpl implements CitaService {
         citaRepository.deleteById(id);
     }
 
+    @Override
+    public InformacionCitaDTO cancelar(String id) throws Exception {
+
+        Cita cita = citaRepository.findById(id)
+                .orElseThrow(() -> new Exception("Cita no encontrada"));
+
+        cita.setEstado(EstadoCita.CANCELADA);
+
+        Cita cancelada = citaRepository.save(cita);
+
+        return new InformacionCitaDTO(
+                cancelada.getId(),
+                cancelada.getClienteId(),
+                cancelada.getNombreCliente(),
+                cancelada.getTelefonoCliente(),
+                cancelada.getBarberoId(),
+                cancelada.getNombreBarbero(),
+                cancelada.getServicioId(),
+                cancelada.getNombreServicio(),
+                cancelada.getFecha(),
+                cancelada.getHoraInicio(),
+                cancelada.getHoraFin(),
+                cancelada.getPrecioBase(),
+                cancelada.getPrecioFinal(),
+                cancelada.isBonoAplicado(),
+                cancelada.getEstado(),
+                cancelada.getObservaciones(),
+                cancelada.getCitaOriginalId(),
+                cancelada.isConfirmacionEnviada(),
+                cancelada.isRecordatorioEnviado(),
+                cancelada.getFechaCreacion()
+        );
+    }
+
 }
