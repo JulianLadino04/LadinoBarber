@@ -36,15 +36,13 @@ public class ServicioServiceImpl implements ServicioService {
     public InformacionServicioDTO obtenerPorId(String id) throws Exception {
         Servicio servicio = servicioRepository.findById(id).orElseThrow(() -> new Exception("Servicio no encontrado"));
         return new InformacionServicioDTO(
-            servicio.getId(),
             servicio.getNombre(),
             servicio.getDescripcion(),
             servicio.getTipo(),
             servicio.getPrecio(),
             servicio.getDuracionMinutos(),
             servicio.getImagenUrl(),
-            servicio.isActivo(),
-            servicio.getFechaCreacion()
+            servicio.isActivo()
         );
     }
 
@@ -52,11 +50,11 @@ public class ServicioServiceImpl implements ServicioService {
     public List<ItemServicioDTO> listar() {
         return servicioRepository.findByActivoTrue().stream()
             .map(s -> new ItemServicioDTO(
-                s.getId(),
                 s.getNombre(),
                 s.getTipo(),
                 s.getPrecio(),
                 s.getDuracionMinutos(),
+                s.isActivo(),
                 s.getImagenUrl()
             ))
             .collect(Collectors.toList());
@@ -73,15 +71,13 @@ public class ServicioServiceImpl implements ServicioService {
         servicio.setImagenUrl(dto.imagenUrl());
         Servicio actualizado = servicioRepository.save(servicio);
         return new InformacionServicioDTO(
-            actualizado.getId(),
             actualizado.getNombre(),
             actualizado.getDescripcion(),
             actualizado.getTipo(),
             actualizado.getPrecio(),
             actualizado.getDuracionMinutos(),
             actualizado.getImagenUrl(),
-            actualizado.isActivo(),
-            actualizado.getFechaCreacion()
+            actualizado.isActivo()
         );
     }
 

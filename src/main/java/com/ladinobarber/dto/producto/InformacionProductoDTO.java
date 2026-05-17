@@ -22,8 +22,6 @@ public record InformacionProductoDTO(
 
         String imagenUrl,
 
-        boolean activo,
-
-        LocalDateTime fechaCreacion
+        boolean activo
 
 ) {}

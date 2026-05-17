@@ -43,8 +43,7 @@ public class ProductoServiceImpl implements ProductoService {
             producto.getPrecio(),
             producto.getStock(),
             producto.getImagenUrl(),
-            producto.isActivo(),
-            producto.getFechaCreacion()
+            producto.isActivo()
         );
     }
 
@@ -80,8 +79,7 @@ public class ProductoServiceImpl implements ProductoService {
             actualizado.getPrecio(),
             actualizado.getStock(),
             actualizado.getImagenUrl(),
-            actualizado.isActivo(),
-            actualizado.getFechaCreacion()
+            actualizado.isActivo()
         );
     }
 
@@ -89,13 +87,6 @@ public class ProductoServiceImpl implements ProductoService {
     public void eliminar(String id) throws Exception {
         Producto producto = productoRepository.findById(id).orElseThrow(() -> new Exception("Producto no encontrado"));
         producto.setActivo(false);
-        productoRepository.save(producto);
-    }
-
-    @Override
-    public void actualizarStock(ActualizarStockDTO dto) throws Exception {
-        Producto producto = productoRepository.findById(dto.id()).orElseThrow(() -> new Exception("Producto no encontrado"));
-        producto.setStock(dto.nuevoStock());
         productoRepository.save(producto);
     }
 

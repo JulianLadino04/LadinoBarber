@@ -1,8 +1,8 @@
 package com.ladinobarber.config;
 
-import com.ladinobarber.modelo.documentos.Administrador;
+import com.ladinobarber.modelo.documentos.Cliente;
 import com.ladinobarber.modelo.enums.Rol;
-import com.ladinobarber.repositorios.AdministradorRepository;
+import com.ladinobarber.repositorios.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 public class AdminInitializer implements CommandLineRunner {
 
-    private final AdministradorRepository administradorRepository;
+    private final ClienteRepository clienteRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Value("${admin.id}")
@@ -34,18 +34,18 @@ public class AdminInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        if (administradorRepository.findByCorreo(adminCorreo).isEmpty()) {
+        if (clienteRepository.findByCorreo(adminCorreo).isEmpty()) {
 
-            Administrador admin = new Administrador();
+            Cliente admin = new Cliente();
 
             admin.setId(adminId);
             admin.setNombre(adminNombre);
             admin.setCorreo(adminCorreo);
             admin.setTelefono(adminTelefono);
             admin.setRol(Rol.ADMINISTRADOR);
-            admin.setPassword(passwordEncoder.encode(adminPassword));
+            admin.setContrasena(passwordEncoder.encode(adminPassword));
 
-            administradorRepository.save(admin);
+            clienteRepository.save(admin);
 
             System.out.println("✅ ADMINISTRADOR CREADO");
             System.out.println("📧 Email: " + adminCorreo);

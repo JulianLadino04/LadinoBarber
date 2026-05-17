@@ -9,8 +9,6 @@ import java.time.LocalDateTime;
  */
 public record InformacionServicioDTO(
 
-        String id,
-
         String nombre,
 
         String descripcion,
@@ -23,8 +21,6 @@ public record InformacionServicioDTO(
 
         String imagenUrl,
 
-        boolean activo,
-
-        LocalDateTime fechaCreacion
+        boolean activo
 
 ) {}

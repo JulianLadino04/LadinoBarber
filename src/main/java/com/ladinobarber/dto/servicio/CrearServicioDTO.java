@@ -33,6 +33,8 @@ public record CrearServicioDTO(
         @Max(value = 240, message = "La duración máxima es 240 minutos")
         int duracionMinutos,
 
-        String imagenUrl
+        String imagenUrl,
+
+        boolean activo
 
 ) {}

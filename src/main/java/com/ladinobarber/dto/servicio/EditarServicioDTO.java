@@ -14,9 +14,6 @@ import java.math.BigDecimal;
  */
 public record EditarServicioDTO(
 
-        @NotBlank(message = "El ID es obligatorio")
-        String id,
-
         @NotBlank(message = "El nombre es obligatorio")
         @Size(min = 3, max = 200, message = "El nombre debe tener entre 3 y 50 caracteres")
         String nombre,
@@ -36,6 +33,8 @@ public record EditarServicioDTO(
         @Max(value = 240, message = "La duración máxima es 240 minutos")
         int duracionMinutos,
 
-        String imagenUrl
+        String imagenUrl,
+
+        boolean activo
 
 ) {}

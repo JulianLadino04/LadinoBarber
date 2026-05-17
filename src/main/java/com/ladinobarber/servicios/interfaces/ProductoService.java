@@ -1,6 +1,5 @@
 package com.ladinobarber.servicios.interfaces;
 
-import com.ladinobarber.dto.producto.ActualizarStockDTO;
 import com.ladinobarber.dto.producto.CrearProductoDTO;
 import com.ladinobarber.dto.producto.EditarProductoDTO;
 import com.ladinobarber.dto.producto.InformacionProductoDTO;
@@ -18,7 +17,5 @@ public interface ProductoService {
     InformacionProductoDTO actualizar(String id, EditarProductoDTO dto) throws Exception;
 
     void eliminar(String id) throws Exception;
-
-    void actualizarStock(ActualizarStockDTO dto) throws Exception;
 
 }

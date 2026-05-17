@@ -8,8 +8,6 @@ import java.math.BigDecimal;
  */
 public record ItemServicioDTO(
 
-        String id,
-
         String nombre,
 
         TipoServicio tipo,
@@ -17,6 +15,8 @@ public record ItemServicioDTO(
         BigDecimal precio,
 
         int duracionMinutos,
+
+        boolean activo,
 
         String imagenUrl
 
